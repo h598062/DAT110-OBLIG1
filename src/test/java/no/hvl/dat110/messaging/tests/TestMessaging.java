@@ -11,14 +11,15 @@ import no.hvl.dat110.messaging.Message;
 import no.hvl.dat110.messaging.MessageUtils;
 import no.hvl.dat110.messaging.MessagingClient;
 import no.hvl.dat110.messaging.MessagingServer;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class TestMessaging {
+class TestMessaging {
 
 	@Test
-	public void test() {
+	void test() {
 
-		byte[] clientsent = { 1, 2, 3, 4, 5 };
+		byte[] clientsent = {1, 2, 3, 4, 5};
 
 		AtomicBoolean failure = new AtomicBoolean(false);
 

@@ -7,9 +7,9 @@ import no.hvl.dat110.rpc.RPCServer;
 public class TestBooleanBooleanImpl extends RPCRemoteImpl {
 
 	public TestBooleanBooleanImpl(byte rpcid, RPCServer rpcserver) {
-		super(rpcid,rpcserver);
+		super(rpcid, rpcserver);
 	}
-	
+
 	public byte[] invoke(byte[] request) {
 
 		boolean b = RPCUtils.unmarshallBoolean(request);

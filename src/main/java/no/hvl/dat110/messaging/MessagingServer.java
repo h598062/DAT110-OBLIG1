@@ -33,9 +33,9 @@ public class MessagingServer {
 
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+
 		// TODO - END
-		
+
 		return connection;
 
 	}

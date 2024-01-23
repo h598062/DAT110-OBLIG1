@@ -14,14 +14,14 @@ import no.hvl.dat110.rpc.RPCClientStopStub;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @TestMethodOrder(OrderAnnotation.class)
-public class TestRPC {
+class TestRPC {
 
 	private static int PORT = 8080;
 	private static String SERVER = "localhost";
 
 	@Test
 	@Order(1)
-	public void testStartStop() {
+	void testStartStop() {
 
 		AtomicBoolean failure = new AtomicBoolean(false);
 
@@ -79,7 +79,7 @@ public class TestRPC {
 		} finally {
 
 			System.out.println("System stopping ... ");
-			
+
 			if (failure.get()) {
 				fail();
 			}
@@ -89,13 +89,13 @@ public class TestRPC {
 
 	@Test
 	@Order(2)
-	public void testVoidCall() {
+	void testVoidCall() {
 
 		RPCClient client = new RPCClient(SERVER, PORT);
 		RPCServer server = new RPCServer(PORT);
 
 		AtomicBoolean failure = new AtomicBoolean(false);
-		
+
 		Thread serverthread = new Thread() {
 
 			public void run() {
@@ -152,7 +152,7 @@ public class TestRPC {
 			e.printStackTrace();
 			fail();
 		} finally {
-			
+
 			System.out.println("System stopping ... ");
 
 			if (failure.get()) {
@@ -163,13 +163,13 @@ public class TestRPC {
 
 	@Test
 	@Order(3)
-	public void testStringCall() {
+	void testStringCall() {
 
 		RPCClient client = new RPCClient(SERVER, PORT);
 		RPCServer server = new RPCServer(PORT);
 
 		AtomicBoolean failure = new AtomicBoolean(false);
-		
+
 		Thread serverthread = new Thread() {
 
 			public void run() {
@@ -231,7 +231,7 @@ public class TestRPC {
 		} finally {
 
 			System.out.println("System stopping ... ");
-			
+
 			if (failure.get()) {
 				fail();
 			}
@@ -240,13 +240,13 @@ public class TestRPC {
 
 	@Test
 	@Order(4)
-	public void testIntCall() {
+	void testIntCall() {
 
 		RPCClient client = new RPCClient(SERVER, PORT);
 		RPCServer server = new RPCServer(PORT);
 
 		AtomicBoolean failure = new AtomicBoolean(false);
-		
+
 		Thread serverthread = new Thread() {
 
 			public void run() {
@@ -307,7 +307,7 @@ public class TestRPC {
 		} finally {
 
 			System.out.println("System stopping ... ");
-			
+
 			if (failure.get()) {
 				fail();
 			}
@@ -316,13 +316,13 @@ public class TestRPC {
 
 	@Test
 	@Order(5)
-	public void testBoolCall() {
+	void testBoolCall() {
 
 		RPCClient client = new RPCClient(SERVER, PORT);
 		RPCServer server = new RPCServer(PORT);
 
 		AtomicBoolean failure = new AtomicBoolean(false);
-		
+
 		Thread serverthread = new Thread() {
 
 			public void run() {
@@ -392,7 +392,7 @@ public class TestRPC {
 		} finally {
 
 			System.out.println("System stopping ... ");
-			
+
 			if (failure.get()) {
 				fail();
 			}
@@ -401,13 +401,13 @@ public class TestRPC {
 
 	@Test
 	@Order(6)
-	public void testAllCalls() {
+	void testAllCalls() {
 
 		RPCClient client = new RPCClient(SERVER, PORT);
 		RPCServer server = new RPCServer(PORT);
 
 		AtomicBoolean failure = new AtomicBoolean(false);
-		
+
 		Thread serverthread = new Thread() {
 
 			public void run() {
@@ -493,7 +493,7 @@ public class TestRPC {
 		} finally {
 
 			System.out.println("System stopping ... ");
-			
+
 			if (failure.get()) {
 				fail();
 			}
