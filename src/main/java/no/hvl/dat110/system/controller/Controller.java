@@ -4,10 +4,17 @@ import no.hvl.dat110.TODO;
 import no.hvl.dat110.rpc.RPCClient;
 import no.hvl.dat110.rpc.RPCClientStopStub;
 
+/**
+ * Hoved kontroller for programmet
+ */
 public class Controller {
 
 	private static int N = 5;
 
+	/**
+	 *
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		DisplayStub display;

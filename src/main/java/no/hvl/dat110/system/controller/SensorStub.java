@@ -3,12 +3,23 @@ package no.hvl.dat110.system.controller;
 import no.hvl.dat110.TODO;
 import no.hvl.dat110.rpc.*;
 
+/**
+ *
+ */
 public class SensorStub extends RPCLocalStub {
 
+	/**
+	 *
+	 * @param rpcclient
+	 */
 	public SensorStub(RPCClient rpcclient) {
 		super(rpcclient);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public int read() {
 
 		// marshall parameter to read call (void parameter)

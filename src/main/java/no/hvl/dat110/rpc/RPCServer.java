@@ -7,14 +7,19 @@ import no.hvl.dat110.messaging.MessageConnection;
 import no.hvl.dat110.messaging.Message;
 import no.hvl.dat110.messaging.MessagingServer;
 
+/**
+ *
+ */
 public class RPCServer {
 
-	private MessagingServer msgserver;
+	private final MessagingServer msgserver;
 	private MessageConnection connection;
 
-	// hashmap to register RPC methods which are required to extend RPCRemoteImpl
-	// the key in the hashmap is the RPC identifier of the method
-	private HashMap<Byte, RPCRemoteImpl> services;
+	/**
+	 * Hashmap to register RPC methods which are required to extend RPCRemoteImpl <p>
+	 * The key in the hashmap is the RPC identifier of the method
+	 */
+	private final HashMap<Byte, RPCRemoteImpl> services;
 
 	public RPCServer(int port) {
 
@@ -23,6 +28,9 @@ public class RPCServer {
 
 	}
 
+	/**
+	 *
+	 */
 	public void run() {
 
 		// the stop RPC method is built into the server
@@ -63,11 +71,18 @@ public class RPCServer {
 
 	}
 
-	// used by server side method implementations to register themselves in the RPC server
+	/**
+	 * used by server side method implementations to register themselves in the RPC server
+	 * @param rpcid
+	 * @param impl
+	 */
 	public void register(byte rpcid, RPCRemoteImpl impl) {
 		services.put(rpcid, impl);
 	}
 
+	/**
+	 * Closes the connection
+	 */
 	public void stop() {
 
 		if (connection != null) {

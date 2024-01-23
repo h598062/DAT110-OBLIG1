@@ -5,11 +5,20 @@ import java.net.ServerSocket;
 
 import no.hvl.dat110.TODO;
 
+/**
+ *
+ */
 public class MessagingServer {
 
-	// server-side socket for accepting incoming TCP connections
+	/**
+	 * server-side socket for accepting incoming TCP connections
+	 */
 	private ServerSocket welcomeSocket;
 
+	/**
+	 *
+	 * @param port
+	 */
 	public MessagingServer(int port) {
 
 		try {
@@ -23,7 +32,10 @@ public class MessagingServer {
 		}
 	}
 
-	// accept an incoming connection from a client
+	/**
+	 * accept an incoming connection from a client
+	 * @return The new MessageConnection to the client
+	 */
 	public MessageConnection accept() {
 
 		MessageConnection connection = null;
@@ -40,6 +52,9 @@ public class MessagingServer {
 
 	}
 
+	/**
+	 * Closes a connection
+	 */
 	public void stop() {
 
 		if (welcomeSocket != null) {

@@ -4,15 +4,26 @@ import no.hvl.dat110.rpc.RPCRemoteImpl;
 import no.hvl.dat110.rpc.RPCUtils;
 import no.hvl.dat110.rpc.RPCServer;
 
+/**
+ *
+ */
 public class SensorImpl extends RPCRemoteImpl {
 
 	static final int RANGE = 20;
 
+	/**
+	 * @param rpcid
+	 * @param rpcserver
+	 */
 	public SensorImpl(byte rpcid, RPCServer rpcserver) {
 		super(rpcid, rpcserver);
 	}
 
-	// implementation of the RPC method
+	/**
+	 * implementation of the RPC method
+	 *
+	 * @return
+	 */
 	public int read() {
 
 		long seconds = System.currentTimeMillis();
@@ -24,7 +35,12 @@ public class SensorImpl extends RPCRemoteImpl {
 		return (int) Math.ceil(temp);
 	}
 
-	// called by RPC server on rpc identifier corresponding to read
+	/**
+	 * called by RPC server on rpc identifier corresponding to read
+	 *
+	 * @param param marshalled parameter for the method
+	 * @return
+	 */
 	public byte[] invoke(byte[] param) {
 
 		RPCUtils.unmarshallVoid(param);

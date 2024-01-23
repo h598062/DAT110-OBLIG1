@@ -5,8 +5,16 @@ import java.util.Arrays;
 
 import no.hvl.dat110.TODO;
 
+/**
+ *
+ */
 public class RPCUtils {
 
+	/**
+	 * @param rpcid
+	 * @param payload
+	 * @return
+	 */
 	public static byte[] encapsulate(byte rpcid, byte[] payload) {
 
 		byte[] rpcmsg = null;
@@ -23,6 +31,10 @@ public class RPCUtils {
 		return rpcmsg;
 	}
 
+	/**
+	 * @param rpcmsg
+	 * @return
+	 */
 	public static byte[] decapsulate(byte[] rpcmsg) {
 
 		byte[] payload = null;
@@ -40,7 +52,12 @@ public class RPCUtils {
 
 	}
 
-	// convert String to byte array
+	/**
+	 * convert String to byte array
+	 *
+	 * @param str
+	 * @return
+	 */
 	public static byte[] marshallString(String str) {
 
 		byte[] encoded = null;
@@ -55,7 +72,12 @@ public class RPCUtils {
 		return encoded;
 	}
 
-	// convert byte array to a String
+	/**
+	 * convert byte array to a String
+	 *
+	 * @param data
+	 * @return
+	 */
 	public static String unmarshallString(byte[] data) {
 
 		String decoded = null;
@@ -70,6 +92,9 @@ public class RPCUtils {
 		return decoded;
 	}
 
+	/**
+	 * @return
+	 */
 	public static byte[] marshallVoid() {
 
 		byte[] encoded = null;
@@ -85,6 +110,9 @@ public class RPCUtils {
 
 	}
 
+	/**
+	 * @param data
+	 */
 	public static void unmarshallVoid(byte[] data) {
 
 		// TODO
@@ -94,7 +122,12 @@ public class RPCUtils {
 
 	}
 
-	// convert boolean to a byte array representation
+	/**
+	 * convert boolean to a byte array representation
+	 *
+	 * @param b
+	 * @return
+	 */
 	public static byte[] marshallBoolean(boolean b) {
 
 		byte[] encoded = new byte[1];
@@ -108,14 +141,24 @@ public class RPCUtils {
 		return encoded;
 	}
 
-	// convert byte array to a boolean representation
+	/**
+	 * convert byte array to a boolean representation
+	 *
+	 * @param data
+	 * @return
+	 */
 	public static boolean unmarshallBoolean(byte[] data) {
 
 		return (data[0] > 0);
 
 	}
 
-	// integer to byte array representation
+	/**
+	 * integer to byte array representation
+	 *
+	 * @param x
+	 * @return
+	 */
 	public static byte[] marshallInteger(int x) {
 
 		byte[] encoded = null;
@@ -130,7 +173,12 @@ public class RPCUtils {
 		return encoded;
 	}
 
-	// byte array representation to integer
+	/**
+	 * byte array representation to integer
+	 *
+	 * @param data
+	 * @return
+	 */
 	public static int unmarshallInteger(byte[] data) {
 
 		int decoded = 0;

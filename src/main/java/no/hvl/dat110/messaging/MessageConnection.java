@@ -8,13 +8,28 @@ import java.net.Socket;
 
 import no.hvl.dat110.TODO;
 
-
+/**
+ *
+ */
 public class MessageConnection {
 
-	private DataOutputStream outStream; // for writing bytes to the underlying TCP connection
-	private DataInputStream inStream; // for reading bytes from the underlying TCP connection
-	private Socket socket; // socket for the underlying TCP connection
+	/**
+	 * for writing bytes to the underlying TCP connection
+	 */
+	private DataOutputStream outStream;
+	/**
+	 * for reading bytes from the underlying TCP connection
+	 */
+	private DataInputStream inStream;
+	/**
+	 * socket for the underlying TCP connection
+	 */
+	private Socket socket;
 
+	/**
+	 *
+	 * @param socket
+	 */
 	public MessageConnection(Socket socket) {
 
 		try {
@@ -32,6 +47,10 @@ public class MessageConnection {
 		}
 	}
 
+	/**
+	 * encapsulate the data contained in the Message and write to the output stream
+	 * @param message The message to be sent to the output stream
+	 */
 	public void send(Message message) {
 
 		byte[] data;
@@ -46,6 +65,10 @@ public class MessageConnection {
 
 	}
 
+	/**
+	 * read a segment from the input stream and decapsulate data into a Message
+	 * @return the resulting Message
+	 */
 	public Message receive() {
 
 		Message message = null;
@@ -63,7 +86,9 @@ public class MessageConnection {
 
 	}
 
-	// close the connection by closing streams and the underlying socket
+	/**
+	 * close the connection by closing streams and the underlying socket
+	 */
 	public void close() {
 
 		try {
