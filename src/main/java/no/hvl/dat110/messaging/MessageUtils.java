@@ -25,7 +25,7 @@ public class MessageUtils {
 
 		segment[0] = (byte)data.length;
 
-        for (int i = 1; i < data.length; i++) {
+        for (int i = 1; i <= data.length; i++) {
 			segment[i] = data[i-1];
         }
 
@@ -43,7 +43,7 @@ public class MessageUtils {
 		int header = segment[0];
 		byte[] data = new byte[header];
 
-		for (int i = 1; i < data.length; i++) {
+		for (int i = 1; i <= data.length; i++) {
 			data[i-1] = segment[i];
 		}
 

@@ -13,95 +13,89 @@ import no.hvl.dat110.TODO;
  */
 public class MessageConnection {
 
-	/**
-	 * for writing bytes to the underlying TCP connection
-	 */
-	private DataOutputStream outStream;
-	/**
-	 * for reading bytes from the underlying TCP connection
-	 */
-	private DataInputStream inStream;
-	/**
-	 * socket for the underlying TCP connection
-	 */
-	private Socket socket;
+    /**
+     * for writing bytes to the underlying TCP connection
+     */
+    private DataOutputStream outStream;
+    /**
+     * for reading bytes from the underlying TCP connection
+     */
+    private DataInputStream inStream;
+    /**
+     * socket for the underlying TCP connection
+     */
+    private Socket socket;
 
-	/**
-	 *
-	 * @param socket
-	 */
-	public MessageConnection(Socket socket) {
+    /**
+     * @param socket
+     */
+    public MessageConnection(Socket socket) {
 
-		try {
+        try {
 
-			this.socket = socket;
+            this.socket = socket;
 
-			outStream = new DataOutputStream(socket.getOutputStream());
+            outStream = new DataOutputStream(socket.getOutputStream());
 
-			inStream = new DataInputStream(socket.getInputStream());
+            inStream = new DataInputStream(socket.getInputStream());
 
-		} catch (IOException ex) {
+        } catch (IOException ex) {
 
-			System.out.println("Connection: " + ex.getMessage());
-			ex.printStackTrace();
-		}
-	}
+            System.out.println("Connection: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
 
-	/**
-	 * encapsulate the data contained in the Message and write to the output stream
-	 * @param message The message to be sent to the output stream
-	 */
-	public void send(Message message) {
+    /**
+     * encapsulate the data contained in the Message and write to the output stream
+     *
+     * @param message The message to be sent to the output stream
+     */
+    public void send(Message message) throws IOException {
 
-		byte[] data;
+        byte[] data = MessageUtils.encapsulate(message);
 
-		// TODO - START
-		// encapsulate the data contained in the Message and write to the output stream
+        outStream.write(data);
+    }
 
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+    /**
+     * read a segment from the input stream and decapsulate data into a Message
+     *
+     * @return the resulting Message
+     */
+    public Message receive() {
 
-		// TODO - END
+        Message message = null;
+        byte[] data;
 
-	}
+        // TODO - START
+        // read a segment from the input stream and decapsulate data into a Message
 
-	/**
-	 * read a segment from the input stream and decapsulate data into a Message
-	 * @return the resulting Message
-	 */
-	public Message receive() {
+        if (true)
+            throw new UnsupportedOperationException(TODO.method());
 
-		Message message = null;
-		byte[] data;
+        // TODO - END
 
-		// TODO - START
-		// read a segment from the input stream and decapsulate data into a Message
+        return message;
 
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+    }
 
-		// TODO - END
+    /**
+     * close the connection by closing streams and the underlying socket
+     */
+    public void close() {
 
-		return message;
+        try {
 
-	}
+            outStream.close();
+            inStream.close();
 
-	/**
-	 * close the connection by closing streams and the underlying socket
-	 */
-	public void close() {
+            socket.close();
 
-		try {
+        } catch (IOException ex) {
 
-			outStream.close();
-			inStream.close();
-
-			socket.close();
-
-		} catch (IOException ex) {
-
-			System.out.println("Connection: " + ex.getMessage());
-			ex.printStackTrace();
-		}
-	}
+            System.out.println("Connection: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
 }
