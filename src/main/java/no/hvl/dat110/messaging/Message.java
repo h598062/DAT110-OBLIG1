@@ -19,7 +19,7 @@ public class Message {
 			throw new NullPointerException("Data must have a value, cannot be null");
 		}
 		if (data.length > 127) {
-			throw new IllegalArgumentException("Data ahs to be less than 127 bytes");
+			throw new IllegalArgumentException("Data has to be less than 127 bytes");
 		}
 		this.data = data;
 	}
