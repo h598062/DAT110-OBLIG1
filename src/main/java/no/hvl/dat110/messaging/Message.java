@@ -15,7 +15,7 @@ public class Message {
 	 * @param data the data to be added in the message
 	 */
 	public Message(byte[] data) {
-		if (data == null || data.length < 1) {
+		if (data == null) {
 			throw new NullPointerException("Data must have a value, cannot be null");
 		}
 		if (data.length > 127) {
