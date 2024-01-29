@@ -1,7 +1,5 @@
 package no.hvl.dat110.messaging;
 
-import no.hvl.dat110.TODO;
-
 /**
  *
  */
@@ -17,13 +15,13 @@ public class Message {
 	 * @param data the data to be added in the message
 	 */
 	public Message(byte[] data) {
-
-		// TODO - START
-
-		if (true)
-			throw new UnsupportedOperationException(TODO.constructor("Message"));
-
-		// TODO - END
+		if (data == null || data.length < 1) {
+			throw new NullPointerException("Data must have a value, cannot be null");
+		}
+		if (data.length > 127) {
+			throw new IllegalArgumentException("Data ahs to be less than 127 bytes");
+		}
+		this.data = data;
 	}
 
 	/**
