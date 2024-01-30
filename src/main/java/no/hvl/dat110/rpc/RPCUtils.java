@@ -15,7 +15,7 @@ public class RPCUtils {
     /**
      * @param rpcid   - ID til metode som skal kjøre ved hjelp av RPC
      * @param payload - Byte[] med data
-     * @return
+     * @return rpcmsg - Payload med RPCID før payload
      */
     public static byte[] encapsulate(byte rpcid, byte[] payload) {
 
@@ -80,29 +80,20 @@ public class RPCUtils {
      */
     public static byte[] marshallVoid() {
 
-        byte[] encoded = null;
+        byte[] encoded = new byte[1];
 
-        // TODO - START
-
-        if (true)
-            throw new UnsupportedOperationException(TODO.method());
-
-        // TODO - END
+		encoded[0] = 99;
 
         return encoded;
-
     }
 
     /**
      * @param data
      */
     public static void unmarshallVoid(byte[] data) {
-
-        // TODO
-
-        if (true)
-            throw new UnsupportedOperationException(TODO.method());
-
+		if (data[0] != 99) {
+			throw new InvalidParameterException("Void type må være 99");
+		}
     }
 
     /**
