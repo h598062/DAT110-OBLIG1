@@ -55,14 +55,14 @@ public class RPCUtils {
 	/**
 	 * convert String to byte array
 	 *
-	 * @param str
-	 * @return
+	 * @param str Stringen som skal marshalles
+	 * @return En marshalled byte array representasjon av den gitte Stringen
 	 */
 	public static byte[] marshallString(String str) {
 
 		byte[] encoded = null;
 
-		// TODO - START 
+		// TODO - START
 
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
@@ -75,8 +75,8 @@ public class RPCUtils {
 	/**
 	 * convert byte array to a String
 	 *
-	 * @param data
-	 * @return
+	 * @param data En marshalled byte array representasjon av en String
+	 * @return Stringen som er lagret i den oppgitte byte arrayen
 	 */
 	public static String unmarshallString(byte[] data) {
 
@@ -125,8 +125,8 @@ public class RPCUtils {
 	/**
 	 * convert boolean to a byte array representation
 	 *
-	 * @param b
-	 * @return
+	 * @param b Boolean som skal marshalles
+	 * @return En marshalled byte array representasjon av den gitte boolean
 	 */
 	public static byte[] marshallBoolean(boolean b) {
 
@@ -144,8 +144,8 @@ public class RPCUtils {
 	/**
 	 * convert byte array to a boolean representation
 	 *
-	 * @param data
-	 * @return
+	 * @param data En marshalled byte array representasjon av en boolean
+	 * @return Boolean som er lagret i den oppgitte byte arrayen
 	 */
 	public static boolean unmarshallBoolean(byte[] data) {
 
@@ -156,41 +156,24 @@ public class RPCUtils {
 	/**
 	 * integer to byte array representation
 	 *
-	 * @param x
-	 * @return
+	 * @param x Integer som skal marshalles
+	 * @return En marshalled byte array representasjon av den gitte integeren
 	 */
 	public static byte[] marshallInteger(int x) {
-
-		byte[] encoded = null;
-
-		// TODO - START 
-
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-
-		return encoded;
+		byte[] encoded = new byte[4];
+		ByteBuffer b = ByteBuffer.wrap(encoded);
+		b.putInt(x);
+		return b.array();
 	}
 
 	/**
 	 * byte array representation to integer
 	 *
-	 * @param data
-	 * @return
+	 * @param data En marshalled byte array representasjon av en integer
+	 * @return Integeren som er lagret i den oppgitte byte arrayen
 	 */
 	public static int unmarshallInteger(byte[] data) {
-
-		int decoded = 0;
-
-		// TODO - START 
-
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-
-		return decoded;
-
+		ByteBuffer b = ByteBuffer.wrap(data);
+		return b.getInt();
 	}
 }
