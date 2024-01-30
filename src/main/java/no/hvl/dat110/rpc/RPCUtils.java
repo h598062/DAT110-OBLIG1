@@ -33,14 +33,15 @@ public class RPCUtils {
 	 * @return
 	 */
 	public static byte[] decapsulate(byte[] rpcmsg) {
-
-		byte[] payload = null;
-
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
+		byte rpcid = rpcmsg[0];
+		byte[] payload = new byte[rpcmsg.length - 1];
 
+		for (int i = 1; i < rpcmsg.length; i++) {
+			payload[i - 1] = rpcmsg[i];
+		}
 
 		return payload;
-
 	}
 
 	/**
