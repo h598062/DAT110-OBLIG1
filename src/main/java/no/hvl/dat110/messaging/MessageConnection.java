@@ -52,6 +52,7 @@ public class MessageConnection {
      * @param message The message to be sent to the output stream
      */
     public void send(Message message) throws IOException {
+        // encapsulate the data contained in the Message and write to the output stream
 
         byte[] data = MessageUtils.encapsulate(message);
 
@@ -63,21 +64,13 @@ public class MessageConnection {
      *
      * @return the resulting Message
      */
-    public Message receive() {
+    public Message receive() throws IOException {
+        // encapsulate the data contained in the Message and write to the output stream
 
-        Message message = null;
-        byte[] data;
+        byte[] data = new byte[128];
+        inStream.readFully(data);
 
-        // TODO - START
-        // read a segment from the input stream and decapsulate data into a Message
-
-        if (true)
-            throw new UnsupportedOperationException(TODO.method());
-
-        // TODO - END
-
-        return message;
-
+        return MessageUtils.decapsulate(data);
     }
 
     /**
