@@ -82,7 +82,7 @@ public class RPCUtils {
 
         byte[] encoded = new byte[1];
 
-		encoded[0] = 99;
+        encoded[0] = 99;
 
         return encoded;
     }
@@ -91,9 +91,9 @@ public class RPCUtils {
      * @param data
      */
     public static void unmarshallVoid(byte[] data) {
-		if (data[0] != 99) {
-			throw new InvalidParameterException("Void type må være 99");
-		}
+        if (data[0] != 99) {
+            throw new InvalidParameterException("Void type må være 99");
+        }
     }
 
     /**
