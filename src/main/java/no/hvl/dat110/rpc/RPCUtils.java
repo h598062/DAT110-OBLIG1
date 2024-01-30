@@ -11,22 +11,19 @@ import no.hvl.dat110.TODO;
 public class RPCUtils {
 
 	/**
-	 * @param rpcid
-	 * @param payload
+	 * @param rpcid - ID til metode som skal kjøre ved hjelp av RPC
+	 * @param payload - Byte[] med data
 	 * @return
 	 */
 	public static byte[] encapsulate(byte rpcid, byte[] payload) {
 
-		byte[] rpcmsg = null;
+		byte[] rpcmsg = new  byte[payload.length + 1];
+		rpcmsg[0] = rpcid;
 
-		// TODO - START
-
+        for (int i = 1; i < rpcmsg.length; i++) {
+            rpcmsg[i] = payload[i - 1];
+        }
 		// Encapsulate the rpcid and payload in a byte array according to the RPC message syntax / format
-
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
 
 		return rpcmsg;
 	}
@@ -39,14 +36,8 @@ public class RPCUtils {
 
 		byte[] payload = null;
 
-		// TODO - START
-
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
 
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
 
 		return payload;
 
