@@ -20,7 +20,7 @@ public class MessageUtils {
 	 */
 	public static byte[] encapsulate(Message message) {
 
-		byte[] segment = new byte[128];
+		byte[] segment = new byte[SEGMENTSIZE];
 		byte[] data = message.getData();
 
 		segment[0] = (byte)data.length;
