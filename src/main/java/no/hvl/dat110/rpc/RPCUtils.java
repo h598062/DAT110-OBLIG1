@@ -1,6 +1,8 @@
 package no.hvl.dat110.rpc;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 import no.hvl.dat110.TODO;
@@ -51,14 +53,9 @@ public class RPCUtils {
 	 */
 	public static byte[] marshallString(String str) {
 
-		byte[] encoded = null;
+		byte[] encoded = str.getBytes();
 
-		// TODO - START
-
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		if (encoded.length > 127) throw new InvalidParameterException("Tekststreng må passe inn i en 127 byte melding");
 
 		return encoded;
 	}
@@ -70,17 +67,11 @@ public class RPCUtils {
 	 * @return Stringen som er lagret i den oppgitte byte arrayen
 	 */
 	public static String unmarshallString(byte[] data) {
-
-		String decoded = null;
-
-		// TODO - START 
-
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-
-		return decoded;
+		StringBuilder sb = new StringBuilder();
+		for (byte b : data) {
+			sb.append((char)b);
+		}
+		return sb.toString();
 	}
 
 	/**
