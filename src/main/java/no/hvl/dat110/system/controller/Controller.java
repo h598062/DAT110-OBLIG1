@@ -44,9 +44,7 @@ public class Controller {
 		// setup stop methods in the RPC middleware
 		RPCClientStopStub stopdisplay = new RPCClientStopStub(displayclient);
 		RPCClientStopStub stopsensor = new RPCClientStopStub(sensorclient);
-
-		// TODO - START
-
+		
 		// create local display and sensor stub objects
 		display = new DisplayStub(displayclient);
 		sensor = new SensorStub(sensorclient);
@@ -62,8 +60,6 @@ public class Controller {
         // read value from sensor using RPC and write to display using RPC
 		String temperatur = Integer.toString(sensor.read());
 		display.write(temperatur);
-
-		// TODO - END
 
 		stopdisplay.stop();
 		stopsensor.stop();
